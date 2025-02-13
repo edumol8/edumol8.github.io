@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Música</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="./universallogo.png" alt="Logo" class="logo">
+        <hr>
+        <button class="menu-button" onclick="showSection('artistas')">Artistas</button>
+        <button class="menu-button" onclick="showSection('albumes')">Álbumes</button>
+        <button class="menu-button" onclick="showSection('canciones')">Canciones</button>
+        
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-content">
+        <!-- Sección de Artistas -->
+        <div id="artistas-section" class="hidden">
+            <h1>Artistas</h1>
+            <div class="top-bar">
+                <button onclick="openAddModal('artista')">Agregar</button>
+            </div>
+            <table id="tabla-artistas">
+                <thead>
+                    <tr>
+                        <th>ID</th> 
+                        <th>Nombre</th>
+                        <th>Género</th>
+                        <th>País</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Sección de Álbumes -->
+        <div id="albumes-section" class="hidden">
+            <h1>Álbumes</h1>
+            <div class="top-bar">
+                <button onclick="openAddModal('album')">Agregar</button>
+            </div>
+            <table id="tabla-albumes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Fecha de Lanzamiento</th>
+                        <th>Artista</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Sección de Canciones -->
+        <div id="canciones-section" class="hidden">
+            <h1>Canciones</h1>
+            <div class="top-bar">
+                <button onclick="openAddModal('cancion')">Agregar</button>
+            </div>
+            <table id="tabla-canciones">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Artista</th>
+                        <th>Duración</th>
+                        <th>Álbum</th>
+                        <th>ID Álbum</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal Agregar/Editar -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Agregar</h2>
+            <div id="modal-fields"></div> <!-- Aquí se insertarán los inputs dinámicamente -->
+            <button onclick="saveEntity()">Guardar</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
